@@ -1,0 +1,45 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #fff;
+    color: #000;
+}
+
+h1 {
+    text-align: center;
+}
+
+.input-area {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    width: 200px;
+    padding: 6px;
+    font-size: 14px;
+}
+
+button {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#taskList {
+    list-style-type: disc;
+    margin-left: 60px;
+    padding: 0;
+}
+
+#taskList li {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
