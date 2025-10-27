@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Order Simulation</title>
+</head>
+<body>
+
+  <h2>Food Order Simulation</h2>
+  <button onclick="startOrder()">Order Food</button>
+
+  <div id="output"></div>
+
+  <script>
+    function showMessage(message) {
+      const div = document.getElementById("output");
+      const line = document.createElement("p");
+      line.textContent = message;
+      div.appendChild(line);
+    }
+
+    function orderFood() {  
+      return new Promise((resolve) => {
+        showMessage("Step 1: You order something to eat.");
+        setTimeout(() => {
+          showMessage("Step 2: Kitchen prepares your food.");
+          resolve("Food is ready!");
+        }, 2000);
+      });
+    }
+
+    function serveFood() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          showMessage("Step 3: Waiter brings food to your table.");
+          resolve();
+        }, 1000);
+      });
+    }
+
+    function startOrder() {
+      document.getElementById("output").innerHTML = "";
+      orderFood()
+        .then((message) => {
+          showMessage(message);
+          return serveFood();
+        })
+        .then(() => {
+          showMessage("Enjoy your meal!");
+        });
+    }
+  </script>
+
+</body>
+</html>

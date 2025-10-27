@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management System</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #dbe6f6, #c5796d);
+      color: #222;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 {
+      color: #1b3b5f;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #1b3b5f;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #142b44;
+    }
+    #output {
+      margin-top: 40px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: #1b3b5f;
+      border-bottom: 2px solid #1b3b5f;
+      padding-bottom: 5px;
+      margin-top: 25px;
+    }
+    p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Management System</h1>
+  <button id="runDemo">Run Assignment Demo</button>
+  <div id="output"></div>
+
+  <script>
+    document.getElementById("runDemo").addEventListener("click", () => {
+      const display = document.getElementById("output");
+      display.innerHTML = "";
+
+      let courseName = "MERN";
+      const instituteName = "Great Learning";
+
+      const coreSubjects = ["HTML", "CSS", "JavaScript"];
+      const advancedSubjects = ["React", "Node.js", "MongoDB"];
+      const allSubjects = [...coreSubjects, ...advancedSubjects];
+
+      const greet = name => "Welcome " + name + "! We’re happy to have you here.";
+
+      class Student {
+        constructor(name, age, skills) {
+          this.name = name;
+          this.age = age;
+          this.skills = skills;
+        }
+        display() {
+          return "Name: " + this.name + "<br>Age: " + this.age + "<br>Skills: " + this.skills.join(", ");
+        }
+      }
+
+      const student1 = new Student("Dinesh", 20, ["HTML", "CSS", "JavaScript"]);
+      const student2 = new Student("Kumar", 21, ["MS Office", "Good Communication", "C"]);
+
+      const gradeList = new Map();
+      gradeList.set("Dinesh", "A");
+      gradeList.set("Kumar", "B+");
+
+      const uniqueSkills = new Set([...student1.skills, ...student2.skills]);
+
+      display.innerHTML += "<h2>Course Information</h2>";
+      display.innerHTML += "<p>Institute: " + instituteName + "</p>";
+      display.innerHTML += "<p>Course: " + courseName + "</p>";
+
+      display.innerHTML += "<h2>Subjects</h2>";
+      display.innerHTML += "<p>" + allSubjects.join(", ") + "</p>";
+
+      display.innerHTML += "<h2>Students</h2>";
+      display.innerHTML += "<p>" + greet(student1.name) + "</p><p>" + student1.display() + "</p><br>";
+      display.innerHTML += "<p>" + greet(student2.name) + "</p><p>" + student2.display() + "</p>";
+
+      display.innerHTML += "<h2>Grades</h2>";
+      gradeList.forEach((grade, name) => {
+        display.innerHTML += "<p>" + name + ": " + grade + "</p>";
+      });
+
+      display.innerHTML += "<h2>Unique Skills</h2>";
+      display.innerHTML += "<p>" + Array.from(uniqueSkills).join(", ") + "</p>";
+    });
+  </script>
+</body>
+</html>

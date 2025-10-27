@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Flowers School</title>
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #dfe9f3, #ffffff);
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 400px;
+  max-width: 90%;
+  margin: 60px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #0056b3;
+}
+p {
+  text-align: center;
+  margin-top: 15px;
+}
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+a:hover {
+  text-decoration: underline;
+}
+.hidden {
+  display: none;
+}
+.activity {
+  background: #f0f8ff;
+  border: 1px solid #c8d6e5;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 6px 0;
+}
+@media (max-width: 500px) {
+  .container { width: 90%; }
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="loginPage">
+  <h2>Student Login</h2>
+  <input type="text" id="username" placeholder="Enter Username">
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="login()">Login</button>
+  <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+</div>
+
+<div class="container hidden" id="registerPage">
+  <h2>Register</h2>
+  <input type="text" id="newUser" placeholder="Choose Username">
+  <input type="password" id="newPass" placeholder="Choose Password">
+  <button onclick="register()">Register</button>
+  <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+</div>
+
+<div class="container hidden" id="welcomePage">
+  <h2>Welcome, <span id="studentName"></span></h2>
+  <p>We’re happy to have you at Spring Flowers School!</p>
+  <button onclick="showMonthly()">Monthly Chart</button>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<div class="container hidden" id="monthlyPage">
+  <h2>Monthly Activities</h2>
+  <select id="subjectSelect" onchange="showActivities()">
+    <option value="">Select Subject</option>
+    <option value="Maths">Maths</option>
+    <option value="Science">Science</option>
+    <option value="English">English</option>
+  </select>
+  <div id="activities"></div>
+  <button onclick="goBack()">Back</button>
+</div>
+
+<script>
+let users = [{ username: "Dinesh Kumar D", password: "12345" }];
+let activities = [
+  { id: 1, activity: "Create project file which contains tables between 12 to 19", subject: "Maths" },
+  { id: 2, activity: "Write an essay about Go Green campaign", subject: "English" },
+  { id: 3, activity: "Make a working model of water cycle", subject: "Science" },
+  { id: 4, activity: "Practice algebra equations from chapter 3", subject: "Maths" },
+  { id: 5, activity: "Prepare a short poem on nature", subject: "English" },
+  { id: 6, activity: "Perform experiment to observe photosynthesis", subject: "Science" }
+];
+
+function showRegister() {
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("registerPage").classList.remove("hidden");
+}
+
+function showLogin() {
+  document.getElementById("registerPage").classList.add("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
+}
+
+function register() {
+  let u = document.getElementById("newUser").value.trim();
+  let p = document.getElementById("newPass").value.trim();
+  if (u && p) {
+    users.push({ username: u, password: p });
+    alert("Registration successful! Please log in.");
+    showLogin();
+  } else {
+    alert("Please fill in all fields.");
+  }
+}
+
+function login() {
+  let u = document.getElementById("username").value.trim();
+  let p = document.getElementById("password").value.trim();
+  let valid = users.find(user => user.username === u && user.password === p);
+  if (valid) {
+    document.getElementById("studentName").textContent = u;
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("welcomePage").classList.remove("hidden");
+  } else {
+    alert("Invalid username or password.");
+  }
+}
+
+function showMonthly() {
+  document.getElementById("welcomePage").classList.add("hidden");
+  document.getElementById("monthlyPage").classList.remove("hidden");
+}
+
+function goBack() {
+  document.getElementById("monthlyPage").classList.add("hidden");
+  document.getElementById("welcomePage").classList.remove("hidden");
+}
+
+function logout() {
+  document.getElementById("welcomePage").classList.add("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+}
+
+function showActivities() {
+  let subject = document.getElementById("subjectSelect").value;
+  let list = document.getElementById("activities");
+  list.innerHTML = "";
+  let filtered = activities.filter(a => a.subject === subject);
+  if (filtered.length === 0) {
+    list.innerHTML = "<p>No activities available for this subject.</p>";
+  } else {
+    filtered.forEach(a => {
+      let div = document.createElement("div");
+      div.className = "activity";
+      div.textContent = a.activity;
+      list.appendChild(div);
+    });
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Green Todo List</title>
+</head>
+<body>
+    <h2>Go Green Todo List</h2>
+    <div id="todo-list"></div>
+
+    <script>
+      function fetchTodo() {
+            return fetch('https://jsonplaceholder.typicode.com/todos')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                });
+        } const customData = [
+            { title: "Plant 10 saplings in your neighborhood", completed: true },
+            { title: "Avoid plastic bags for one week", completed: false },
+            { title: "Organize a local clean-up drive", completed: true },
+            { title: "Start composting kitchen waste", completed: false },
+            { title: "Switch off lights when not needed", completed: true },
+            { title: "Reduce paper use at school or office", completed: false },
+            { title: "Encourage friends to recycle", completed: true },
+            { title: "Save rainwater using a simple barrel system", completed: false },
+            { title: "Promote tree planting campaign", completed: true },
+            { title: "Grow your own organic vegetables", completed: false }
+        ]; fetchTodo()
+            .then(() => {
+                const todoContainer = document.getElementById('todo-list');
+                customData.forEach((todo, index) => {
+                    const item = document.createElement('div');
+                    item.style.border = "1px solid #000";
+                    item.style.margin = "5px";
+                    item.style.padding = "5px";
+                    item.innerHTML = `
+                        <strong>${index + 1}.</strong> ${todo.title}<br>
+                        <strong>Status:</strong> ${todo.completed ? "Completed" : "In Progress"}
+                    `;
+                    todoContainer.appendChild(item);
+                });
+            })
+            .catch(error => {
+                document.getElementById('todo-list').textContent = "Error fetching todos: " + error;
+            });
+    </script>
+</body>
+</html>
