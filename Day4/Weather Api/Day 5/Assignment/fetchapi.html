@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Blog — Fetch API Project</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f6f7fb;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 850px;
+    }
+    .post, .todo {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 0;
+    }
+    .post h3 {
+      margin: 0;
+      color: #34495e;
+    }
+    .todo {
+      font-size: 16px;
+      color: #2c3e50;
+      padding-left: 10px;
+    }
+    .todo.done {
+      background-color: #e9f7ef;
+      border-radius: 6px;
+    }
+    .todo.pending {
+      background-color: #fef5e7;
+      border-radius: 6px;
+    }
+    .error {
+      color: #c0392b;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sports Blog — Fetch API Project</h1>
+
+  <div class="section">
+    <h2>Latest Sports Articles</h2>
+    <div id="posts"></div>
+    <p id="postsError" class="error"></p>
+  </div>
+
+  <div class="section">
+    <h2>Sports To-Do List</h2>
+    <div id="todos"></div>
+    <p id="todosError" class="error"></p>
+  </div>
+
+  <script>
+    const DataModule = (() => {
+      const POSTS_API = "https://jsonplaceholder.typicode.com/posts";
+      const TODOS_API = "https://jsonplaceholder.typicode.com/todos";
+
+      async function fetchData(url) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`Server Error: ${response.status}`);
+          return await response.json();
+        } catch {
+          throw new Error("Unable to fetch data. Please check your connection.");
+        }
+      }
+
+      return {
+        getPosts: () => fetchData(POSTS_API),
+        getTodos: () => fetchData(TODOS_API)
+      };
+    })();
+
+    const UIModule = (() => {
+      const postsContainer = document.getElementById("posts");
+      const todosContainer = document.getElementById("todos");
+      const postsError = document.getElementById("postsError");
+      const todosError = document.getElementById("todosError");
+
+      const postsData = [
+        {
+          title: "Cricket: Mastering the Art of Spin Bowling",
+          body: "Spin bowling is a blend of skill, patience, and control. Discover how world-class spinners create magic with flight, turn, and bounce."
+        },
+        {
+          title: "The Rise of Indian Football",
+          body: "Indian football is gaining momentum with youth leagues, better infrastructure, and international exposure driving the next generation of stars."
+        },
+        {
+          title: "Fitness Training for Athletes",
+          body: "From endurance drills to strength conditioning, learn how professional athletes maintain top physical performance year-round."
+        },
+        {
+          title: "Understanding Mental Toughness in Sports",
+          body: "Mental strength separates good athletes from great ones. Learn how focus and resilience shape champions."
+        },
+        {
+          title: "T20 Cricket Strategy Breakdown",
+          body: "Short-format cricket demands instant decisions and creativity. Explore the evolving strategies that dominate modern T20 games."
+        }
+      ];
+
+      const todosData = [
+        { title: "Practice batting for 1 hour", completed: true },
+        { title: "Warm-up and stretching exercises", completed: true },
+        { title: "Work on fielding techniques", completed: false },
+        { title: "Analyze previous match footage", completed: true },
+        { title: "Team coordination session", completed: false },
+        { title: "Focus on mental training", completed: false },
+        { title: "Improve running between wickets", completed: true },
+        { title: "Hydration and nutrition check", completed: true },
+        { title: "Plan next practice match", completed: false },
+        { title: "Review bowling variations", completed: true }
+      ];
+
+      function renderPosts() {
+        postsContainer.innerHTML = postsData
+          .map(post => `
+            <div class="post">
+              <h3>${post.title}</h3>
+              <p>${post.body}</p>
+            </div>
+          `)
+          .join("");
+      }
+
+      function renderTodos() {
+        todosContainer.innerHTML = todosData
+          .map(todo => `
+            <div class="todo ${todo.completed ? "done" : "pending"}">
+              ${todo.title}
+            </div>
+          `)
+          .join("");
+      }
+
+      function showError(type, message) {
+        if (type === "posts") postsError.textContent = message;
+        if (type === "todos") todosError.textContent = message;
+      }
+
+      return { renderPosts, renderTodos, showError };
+    })();
+
+    const AppModule = (() => {
+      async function init() {
+        try {
+          await DataModule.getPosts();
+          UIModule.renderPosts();
+        } catch (error) {
+          UIModule.showError("posts", error.message);
+        }
+
+        try {
+          await DataModule.getTodos();
+          UIModule.renderTodos();
+        } catch (error) {
+          UIModule.showError("todos", error.message);
+        }
+      }
+      return { init };
+    })();
+
+    AppModule.init();
+  </script>
+</body>
+</html>
+
+
