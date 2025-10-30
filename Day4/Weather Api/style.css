@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #89d4ff, #4c90e3, #203a6b);
+  color: white;
+  overflow-x: hidden;
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 10px 20px;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 5px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.search input {
+  width: 60%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.search button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #ffd86b;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+#weatherDisplay {
+  text-align: center;
+  position: relative;
+}
+
+#temperature {
+  font-size: 4em;
+  margin: 0;
+}
+
+#skyCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.chart-section {
+  height: 300px;
+}
+
+.map-section #map {
+  height: 350px;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 14px;
+  opacity: 0.8;
+}

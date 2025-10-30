@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyCast Pro — Real Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>🌦️ SkyCast Pro</h1>
+      <p>Your all-in-one real-time global weather dashboard</p>
+    </header>
+
+    <section class="search">
+      <input id="cityInput" type="text" placeholder="Enter city, state or country..." />
+      <button id="searchBtn">Get Weather</button>
+      <button id="locBtn">📍 Use My Location</button>
+    </section>
+
+    <section id="weatherDisplay" class="card">
+      <h2 id="cityName">--</h2>
+      <div class="current-info">
+        <p id="temperature">--°C</p>
+        <p id="condition">--</p>
+        <p id="details">Humidity: --% | Wind: -- m/s</p>
+      </div>
+      <canvas id="skyCanvas"></canvas>
+    </section>
+
+    <section class="chart-section card">
+      <h3>📊 Temperature Trends (Next 5 Days)</h3>
+      <canvas id="forecastChart"></canvas>
+    </section>
+
+    <section class="map-section card">
+      <h3>🗺️ Location Map</h3>
+      <div id="map"></div>
+    </section>
+  </div>
+
+  <footer>
+    <p>Powered by OpenWeatherMap & OpenStreetMap</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
