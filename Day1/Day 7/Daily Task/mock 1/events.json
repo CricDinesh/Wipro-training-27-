@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Evening Jazz Concert",
+    "category": "Music & Entertainment",
+    "date": "2025-12-07",
+    "price": 240,
+    "image": "https://picsum.photos/400/200?random=101"
+  },
+  {
+    "id": 2,
+    "title": "Innovators Meetup",
+    "category": "Business & Networking",
+    "date": "2025-11-22",
+    "price": 120,
+    "image": "https://picsum.photos/400/200?random=102"
+  },
+  {
+    "id": 3,
+    "title": "Creative Art Studio",
+    "category": "Workshops & Learning",
+    "date": "2025-12-03",
+    "price": 60,
+    "image": "https://picsum.photos/400/200?random=103"
+  },
+  {
+    "id": 4,
+    "title": "City Run Challenge",
+    "category": "Sports & Fitness",
+    "date": "2025-11-29",
+    "price": 310,
+    "image": "https://picsum.photos/400/200?random=104"
+  },
+  {
+    "id": 5,
+    "title": "Future Tech Forum",
+    "category": "Technology",
+    "date": "2025-11-26",
+    "price": 0,
+    "image": "https://picsum.photos/400/200?random=105"
+  }
+]

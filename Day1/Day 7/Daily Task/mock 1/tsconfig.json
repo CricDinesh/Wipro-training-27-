@@ -1,0 +1,7 @@
+
+{
+  "target": "es5",
+  "outDir": "./",
+  "strict": false,
+  "experimentalDecorators": true
+}
