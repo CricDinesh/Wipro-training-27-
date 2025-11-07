@@ -1,0 +1,10 @@
+.author-info {
+  background-color: #fdfdfd;
+  border-radius: 8px;
+}
+
+.author-info ul {
+  list-style-type: square;
+  margin-left: 20px;
+  color: #444;
+}
