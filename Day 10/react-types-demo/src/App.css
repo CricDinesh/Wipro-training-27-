@@ -1,0 +1,21 @@
+.App {
+  text-align: left;
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+h2 {
+  color: #005f73;
+  border-bottom: 2px solid #94d2bd;
+  padding-bottom: 5px;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
