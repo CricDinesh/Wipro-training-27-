@@ -1,0 +1,86 @@
+.app-container {
+  text-align: center;
+  padding: 2rem;
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.nav-buttons {
+  margin: 1rem 0;
+}
+
+button {
+  background: #2563eb;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  margin: 0.4rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+section {
+  background: white;
+  border-radius: 14px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Themes */
+.lazy-section {
+  border-left: 6px solid #3b82f6;
+}
+.pure-section {
+  border-left: 6px solid #10b981;
+}
+.error-section {
+  border-left: 6px solid #ef4444;
+}
+.portal-section {
+  border-left: 6px solid #f59e0b;
+}
+.welcome-section {
+  border-left: 6px solid #6366f1;
+}
+
+/* Loader */
+.loader {
+  font-size: 1.3rem;
+  color: #2563eb;
+  margin-top: 1rem;
+  animation: blink 1.2s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Theme Button */
+.theme-btn {
+  background: #10b981;
+}
+.theme-btn:hover {
+  background: #059669;
+}
