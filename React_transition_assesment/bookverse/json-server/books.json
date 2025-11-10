@@ -1,0 +1,74 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Mahabharata",
+      "author": "Vyasa",
+      "category": "Epic",
+      "description": "The story of Kurukshetra war and fate of Kauravas and Pandavas."
+    },
+    {
+      "id": 2,
+      "title": "Ramayana",
+      "author": "Valmiki",
+      "category": "Epic",
+      "description": "Life of Lord Rama, Sita and the journey to rescue her from Ravana."
+    },
+    {
+      "id": 3,
+      "title": "Rigveda",
+      "author": "Various",
+      "category": "Vedas",
+      "description": "Collection of ancient hymns in praise of deities."
+    },
+    {
+      "id": 4,
+      "title": "Delhi Sultans",
+      "author": "History Council",
+      "category": "Indian History",
+      "description": "A concise history of the Delhi Sultanate period."
+    },
+    {
+      "id": 5,
+      "title": "Mughals",
+      "author": "Abul Fazl",
+      "category": "Indian History",
+      "description": "The Mughal dynasty and its impact on Indian culture."
+    },
+    {
+      "id": 6,
+      "title": "Solar System",
+      "author": "NASA Team",
+      "category": "Science",
+      "description": "A journey through the planets and celestial bodies."
+    },
+    {
+      "id": 7,
+      "title": "Indian Freedom",
+      "author": "Bipan Chandra",
+      "category": "Modern India",
+      "description": "India’s struggle for independence from British rule."
+    },
+    {
+      "id": 8,
+      "title": "Five Year Plans",
+      "author": "Planning Commission",
+      "category": "Economics",
+      "description": "Development strategy and planning in post-independent India."
+    },
+    {
+      "id": 9,
+      "title": "Indian Constitution",
+      "author": "B. R. Ambedkar",
+      "category": "Civics",
+      "description": "Fundamental rights, duties, and structure of Indian democracy."
+    },
+    {
+      "id": 10,
+      "title": "Sports Book - Cricket",
+      "author": "John Wright",
+      "category": "Sports",
+      "description": "History and evolution of cricket in India."
+    }
+  ]
+}
