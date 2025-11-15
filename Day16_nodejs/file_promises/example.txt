@@ -1,0 +1,2 @@
+Hello from Node.js file system promises!
+This file was read using async/await.

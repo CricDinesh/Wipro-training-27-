@@ -1,0 +1,10 @@
+.app-header .controls button {
+  margin-right: 8px;
+  border: none;
+  background: #ffffff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(8,12,30,0.05);
+}
+.app-header .controls button:hover { transform: translateY(-1px); }

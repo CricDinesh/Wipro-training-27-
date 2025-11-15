@@ -1,0 +1,2 @@
+.module { padding: 6px 2px; }
+.error-fallback { padding: 12px; border-radius: 8px; background: linear-gradient(180deg,#fff6f6,#fff); border: 1px solid rgba(239,68,68,0.06); color: #7f1d1d; }

@@ -1,0 +1,17 @@
+{
+  "name": "challenge2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "banner.js",
+  "scripts": {
+    "start": "node banner.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "figlet": "^1.9.3"
+  }
+}

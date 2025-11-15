@@ -1,0 +1,17 @@
+/* Basic resets and theme-aware roots */
+:root {
+  --bg-light: linear-gradient(180deg,#e6f0ff,#f3fbff);
+  --bg-dark: linear-gradient(180deg,#0f1724,#071026);
+  --card-light: #ffffff;
+  --card-dark: #0e1720;
+  --text-light: #0e1720;
+  --text-dark: #e6eef8;
+  --accent1: #6a11cb;
+  --accent2: #2575fc;
+}
+
+html[data-theme='light'] { --bg: var(--bg-light); --card: var(--card-light); --text: var(--text-light); }
+html[data-theme='dark']  { --bg: var(--bg-dark);  --card: var(--card-dark);  --text: var(--text-dark); }
+
+* { box-sizing: border-box; }
+body,html,#root { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: var(--bg); color: var(--text); }

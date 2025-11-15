@@ -1,0 +1,17 @@
+{
+  "name": "challenge3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "greet.js",
+ "scripts": {
+  "start": "node greet.js"
+},
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
+}
