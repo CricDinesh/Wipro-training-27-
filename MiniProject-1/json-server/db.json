@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Customer",
+      "email": "cust@example.com",
+      "password": "cust123",
+      "role": "customer"
+    },
+    {
+      "id": "14a4",
+      "name": "Dinesh Kumar D",
+      "email": "dinesh130704@gmail.com",
+      "password": "123456",
+      "role": "customer"
+    }
+  ],
+  "packages": [
+    {
+      "id": "1",
+      "title": "Goa Beach Escape",
+      "price": 4999,
+      "duration": "4 days",
+      "image": "/images/goa.jpg",
+      "description": "Relax on sandy beaches, enjoy water sports, and experience Goa nightlife."
+    },
+    {
+      "id": "2",
+      "title": "Himachal Hills",
+      "price": 6999,
+      "duration": "6 days",
+      "image": "/images/himachal.jpg",
+      "description": "Mountain treks, scenic Himalayan views, and a peaceful cool climate."
+    },
+    {
+      "id": "3",
+      "title": "Kerala Backwaters",
+      "price": 5999,
+      "duration": "5 days",
+      "image": "/images/kerala.jpg",
+      "description": "Beautiful houseboats, lush greenery and relaxing backwater experience."
+    },
+    {
+      "id": "a858",
+      "title": "Marina Beach (Chennai)",
+      "price": 1000,
+      "duration": "2",
+      "image": "/images/marina.jpg",
+      "description": "Enjoy Your 2 days in marina in chennai"
+    }
+  ],
+  "bookings": []
+}
