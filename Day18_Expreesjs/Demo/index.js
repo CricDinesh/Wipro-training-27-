@@ -1,7 +1,5 @@
-// -------------------------------------------------------------
+
 // SkillTrack - Student Skills Management API
-// Backend Developer: Dinesh  (Clean, human-written documentation)
-// -------------------------------------------------------------
 
 const express = require("express");
 const app = express();
