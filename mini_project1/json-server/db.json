@@ -20,6 +20,13 @@
       "email": "dinesh130704@gmail.com",
       "password": "123456",
       "role": "customer"
+    },
+    {
+      "id": "775e",
+      "name": "eli",
+      "email": "raju@farm.com",
+      "password": "123456",
+      "role": "customer"
     }
   ],
   "packages": [
