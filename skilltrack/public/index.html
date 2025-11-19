@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>SkillTrack Day 24 - Upload & Chat</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Roboto, 'Segoe UI', sans-serif; padding: 18px; max-width:900px; margin:auto; }
+    .card { border:1px solid #e0e0e0; padding:12px; margin-bottom:12px; border-radius:8px; }
+    .materials { display:flex; flex-direction:column; gap:6px; }
+    .chat { display:flex; flex-direction:column; gap:8px; height:300px; overflow:auto; border:1px solid #ddd; padding:8px; border-radius:6px; background:#fafafa;}
+    .chat-input { display:flex; gap:6px; margin-top:8px; }
+    input, button { padding:8px; border-radius:6px; border:1px solid #ccc; }
+    button { cursor:pointer; }
+  </style>
+</head>
+<body>
+  <h1>SkillTrack — Day 24</h1>
+
+  <div class="card">
+    <h2>Upload course material (PDF)</h2>
+    <form id="uploadForm">
+      <input type="file" id="fileInput" accept="application/pdf" required/>
+      <button type="submit">Upload PDF</button>
+    </form>
+    <div id="uploadResult" style="margin-top:8px; color:green;"></div>
+  </div>
+
+  <div class="card">
+    <h2>Available materials</h2>
+    <div id="materialsList" class="materials">Loading…</div>
+    <button id="refreshMaterials">Refresh list</button>
+  </div>
+
+  <div class="card">
+    <h2>Live chat (Socket.io)</h2>
+    <div>
+      <label>Your name: <input id="nameInput" placeholder="Instructor or student" /></label>
+      <label>Room (optional): <input id="roomInput" placeholder="class-1" /></label>
+    </div>
+    <div id="chatWindow" class="chat"></div>
+
+    <div class="chat-input">
+      <input id="messageInput" placeholder="Type a message" style="flex:1" />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>

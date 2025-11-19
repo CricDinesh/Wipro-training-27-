@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Students</title>
+</head>
+<body>
+  <h1>Student Progress List</h1>
+
+  <ul>
+    <% students.forEach(student => { %>
+      <li>
+        <strong><%= student.name %></strong> —
+        <%= student.email %> —
+        Progress: <%= student.progress %>%
+      </li>
+    <% }) %>
+  </ul>
+
+  <hr />
+
+  <h2>Add New Student</h2>
+  <form action="/students" method="POST">
+    <input type="text" name="name" placeholder="Enter name" required />
+    <input type="email" name="email" placeholder="Enter email" required />
+    <button type="submit">Add</button>
+  </form>
+</body>
+</html>
