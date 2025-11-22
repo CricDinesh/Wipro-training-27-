@@ -1,0 +1,47 @@
+/* ====== ERROR INPUT ====== */
+.error-input {
+  border: 2px solid #ff4d4d !important;
+  background: #ffe9e9;
+  transition: 0.3s;
+}
+
+/* ====== LOADER SPINNER ====== */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.loader {
+  border: 4px solid #ddd;
+  border-top: 4px solid #5c39ff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.nav-link {
+  color: #444;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #7a5dff;
+}
+
+.nav-active {
+  color: #5c39ff;
+  font-weight: 700;
+  border-bottom: 2px solid #5c39ff;
+  padding-bottom: 4px;
+}
+
