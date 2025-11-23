@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
 
     // When message comes from client
     socket.on('message', (data) => {
-        console.log("Message received:", data);  // <-- Added this line (CMD OUTPUT)
+        console.log("Message received:", data);  
         io.emit('message', data);
     });
 
