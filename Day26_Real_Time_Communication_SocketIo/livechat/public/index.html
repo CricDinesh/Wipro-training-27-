@@ -1,0 +1,120 @@
+ <!-- Create a basics UI where user can send and receive messages in real-time along with displaying the chat history -->
+     <!-- Below are the steps 
+     Step 1: Create a container for chat messages
+     Step 2: Create an input field for typing messages 
+     Step 3: Create a button to send messages
+     Step 4: Use Socket.IO to handle real-time communication
+     Step 5: Display incoming messages in the chat container
+     -->
+
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #chat-container {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #aaa;
+        }
+
+        #messages {
+            height: 260px;
+            overflow-y: auto;
+            border: 1px solid #dadada;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        #messages div {
+            background: #d9edf7;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        #message-input {
+            width: 72%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        #send-button {
+            width: 25%;
+            padding: 10px;
+            border-radius: 6px;
+            background: #007bff;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #send-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="chat-container">
+        <div id="messages"></div>
+
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        const socket = io();
+
+        const messages = document.getElementById('messages');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const message = messageInput.value.trim();
+
+            if (message !== "") {
+                socket.emit('message', message);
+                messageInput.value = "";
+            }
+        }
+
+        socket.on('message', (message) => {
+            const msgDiv = document.createElement('div');
+            msgDiv.textContent = message;
+            messages.appendChild(msgDiv);
+
+            // Auto-scroll
+            messages.scrollTop = messages.scrollHeight;
+        });
+    </script>
+
+</body>
+</html>
